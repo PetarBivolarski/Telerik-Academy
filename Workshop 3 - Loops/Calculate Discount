@@ -14,14 +14,14 @@ public class Main {
         String lines = userInput.nextLine();
         int n = Integer.parseInt(lines);
 
-        double itemprice = 0;
+        double itemPrice = 0;
         double discounted = 0;
 
 
         for (int i = 1; i <= n; i++) {
             String price = userInput.nextLine();
-            itemprice = Double.parseDouble(price);
-            discounted = itemprice * (1 - 0.65);
+            itemPrice = Double.parseDouble(price);
+            discounted = itemPrice * (1 - 0.65);
         }
 
         for (int j = 1; j <= n; j++) {
