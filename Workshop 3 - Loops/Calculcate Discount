@@ -1,0 +1,31 @@
+package com.company;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+        NumberFormat decimals = new DecimalFormat("#0.00");
+        String number = userInput.nextLine();
+        int numbers = Integer.parseInt(number);
+        double itemprice = 0;
+        double discounted = 0;
+
+
+        for (int i = 1; i <= numbers; i++) {
+            String price = userInput.nextLine();
+            itemprice = Double.parseDouble(price);
+            discounted = itemprice * (1 - 0.65);
+        }
+
+        for (int j = 1; j <= numbers; j++) {
+            System.out.println(decimals.format(discounted));
+        }
+
+
+    }
+}
