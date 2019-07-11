@@ -1,0 +1,30 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        String number = userInput.nextLine();
+        int N = Integer.parseInt(number);
+        for (int i = 1; i <= N; i++)
+        {
+            int j;
+            for (j = i; j <= N; j++)
+            {
+                System.out.print(j + " ");
+            }
+            for(int k = i-1; k >= 1; k--)
+            {
+                System.out.print(j + " ");
+                j++;
+
+            }
+            System.out.println();
+        }
+
+    }
+}
