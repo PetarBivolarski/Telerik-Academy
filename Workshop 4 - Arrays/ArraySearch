@@ -1,8 +1,8 @@
 package com.company;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
@@ -12,14 +12,13 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
         String[] numbers = userInput.nextLine().split(",");
         ArrayList<String> missingNumbers = new ArrayList<>();
-        HashSet<String> removeDup = new HashSet<>(Arrays.asList(numbers));
-
-        for (String strTemp : numbers) {
-            while (!removeDup.contains(strTemp)) {
-                missingNumbers.add(strTemp);
+         for (int i = 1; i <= numbers.length; i++) {
+            while (!Arrays.asList(numbers).contains(String.valueOf(i))) {
+                missingNumbers.add(String.valueOf(i));
+                break;
             }
         }
-
         System.out.println(missingNumbers.toString().join(",", missingNumbers));
     }
+
 }
