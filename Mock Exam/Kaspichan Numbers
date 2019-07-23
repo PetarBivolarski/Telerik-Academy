@@ -1,0 +1,33 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+        BigInteger n =  userInput.nextBigInteger();
+        int numBase = 256;
+        String[] letters = new String[numBase];
+        for (int i = 0; i < numBase; i++) {
+            if (i < 26) { // solve for first 26
+                letters[i] = String.format("%.1s", (char) (i + 'A'));
+            } else {
+                letters[i] = String.format("%.2s%.2s",
+                        (char) (i / 26 - 1 + 'a'),
+                        (char) (i % 26 + 'A'));
+            }
+        }
+        if (n.equals(BigInteger.valueOf(0))) {
+            System.out.println("A");
+        }
+        String result = "";
+
+        while (n.compareTo(BigInteger.ZERO) > 0) {
+            Integer index = n.remainder(BigInteger.valueOf(numBase)).intValue();
+            result = letters[index] + result;
+            n = n.divide(BigInteger.valueOf(numBase));
+
+        }
+        System.out.println(result);
+    }
+}
