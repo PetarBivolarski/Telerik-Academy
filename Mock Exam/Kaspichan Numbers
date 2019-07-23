@@ -20,8 +20,8 @@ public class Main {
         if (n.equals(BigInteger.valueOf(0))) {
             System.out.println("A");
         }
+        
         String result = "";
-
         while (n.compareTo(BigInteger.ZERO) > 0) {
             Integer index = n.remainder(BigInteger.valueOf(numBase)).intValue();
             result = letters[index] + result;
