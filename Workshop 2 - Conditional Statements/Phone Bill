@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        double sms = userInput.nextDouble();
+        double min = userInput.nextDouble();
+
+        double diffSms = Math.abs(sms - 20);
+        double diffMin = Math.abs(min - 60);
+        double priceText = diffSms * 0.06;
+        double priceMin = diffMin * 0.10;
+        double taxesText = priceText * 0.20;
+        double taxesMin = priceMin * 0.20;
+        double taxesTotal = taxesText + taxesMin;
+        double totalPriceText = priceText + taxesText;
+
+        double totalPriceMin = priceMin + taxesMin;
+        double totalPrice = totalPriceMin + totalPriceText + 12;
+
+        if (sms > 20 && min > 60) {
+            System.out.printf("%.0f additional messages for %.2f levas%n%.0f additional minutes for %.2f levas%n%.2f additional taxes%n%.2f total bill"
+                    , diffSms, priceText, diffMin, priceMin, taxesTotal, totalPrice);
+
+        } else if (sms <= 20 && min > 60) {
+            totalPrice = priceMin + taxesMin + 12.00;
+            System.out.println("0 additional messages for 0.00 levas");
+            System.out.printf("%.0f additional minutes for %.2f levas%n%.2f additional taxes%n%.2f total bill", diffMin,priceMin,taxesMin,totalPrice);
+
+        } else if (sms > 20 && min <= 60) {
+            totalPrice = priceText + taxesText + 12.00;
+            System.out.printf("%.0f additional messages for %.2f levas%n0 additional minutes for 0.00 levas%n%.2f additional taxes%n%.2f total bill",
+                    diffSms, priceText, taxesText, totalPrice);
+
+        } else {
+            System.out.println("0 additional messages for 0.00 levas");
+            System.out.println("0 additional minutes for 0.00 levas ");
+            System.out.println("0.00 additional taxes");
+            System.out.println("12.00 total bill");
+        }
+
+    }
+}
